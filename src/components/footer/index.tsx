@@ -1,14 +1,25 @@
 import styles from './styles.module.css'
 
 const links = [
-    { label: 'Início', href: '#inicio' },
-    { label: 'Sobre', href: '#sobre' },
-    { label: 'Menu', href: '#menu' },
-    { label: 'Depoimentos', href: '#depoimentos' },
+    { label: 'Início', href: '#' },
+    { label: 'Produtos', href: '#produtos' },
+    { label: 'Nossa História', href: '#historia' },
     { label: 'Contato', href: '#contato' },
 ]
 
 export function Footer() {
+    const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+        e.preventDefault()
+        if (href === '#') {
+            window.scrollTo({ top: 0, behavior: 'smooth' })
+            return
+        }
+        const element = document.querySelector(href)
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' })
+        }
+    }
+
     return (
         <footer className={styles.footer}>
             <div className={styles.inner}>
@@ -24,7 +35,11 @@ export function Footer() {
                     <ul className={styles.navList}>
                         {links.map((link) => (
                             <li key={link.href}>
-                                <a href={link.href} className={styles.navLink}>
+                                <a
+                                    href={link.href}
+                                    className={styles.navLink}
+                                    onClick={(e) => handleScroll(e, link.href)}
+                                >
                                     {link.label}
                                 </a>
                             </li>
