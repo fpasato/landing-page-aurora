@@ -1,0 +1,220 @@
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  display: grid;
+  place-items: center;
+  padding: clamp(1rem, 3vw, 2.5rem);
+
+  background: var(--background);
+  color: var(--accent);
+}
+
+/* ---------- Coluna de texto ---------- */
+
+.content {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+
+  width: min(100%, 30rem);
+  padding: clamp(1.5rem, 3.5vw, 2.75rem);
+  border-radius: 1.5rem;
+
+  background-color: #414833a0;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  border: 1px solid color-mix(in srgb, var(--accent) 20%, transparent);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+
+  color: var(--accent);
+  background: color-mix(in srgb, var(--primary) 55%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent) 22%, transparent);
+}
+
+.eyebrow::before {
+  content: '';
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background: var(--secondary);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--secondary) 28%, transparent);
+}
+
+.content h1 {
+  margin: 0;
+  max-width: 18ch;
+
+  font-size: clamp(1.75rem, 3.2vw, 2.75rem);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+
+  color: var(--accent);
+}
+
+.content h1:empty {
+  display: none;
+}
+
+.content p {
+  margin: 0;
+  max-width: 38ch;
+
+  font-size: clamp(0.9rem, 1vw, 1rem);
+  line-height: 1.65;
+  white-space: pre-line;
+  text-wrap: pretty;
+
+  color: color-mix(in srgb, var(--accent) 78%, transparent);
+}
+
+.content button {
+  margin-top: 0.5rem;
+  padding: 0.8rem 1.5rem;
+
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
+
+  color: var(--primary-foreground);
+  background: var(--primary);
+  border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent);
+  border-radius: 999px;
+  cursor: pointer;
+
+  box-shadow: 0 10px 24px -10px color-mix(in srgb, var(--primary) 80%, black);
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.content button:hover {
+  background: color-mix(in srgb, var(--primary) 85%, var(--accent));
+  transform: translateY(-2px);
+  box-shadow: 0 16px 28px -12px color-mix(in srgb, var(--primary) 80%, black);
+}
+
+.content button:active {
+  transform: translateY(0);
+}
+
+.content button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* ---------- Welcome ---------- */
+
+.welcomeBackdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+
+  display: grid;
+  place-items: center;
+
+  background: rgba(20, 10, 4, 0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  cursor: pointer;
+  animation: welcomeFade 0.5s ease-out;
+  overflow: hidden;
+}
+
+.welcomeCard {
+  max-width: 20rem;
+  width: calc(100% - 3rem);
+
+  padding: 2rem 1.75rem;
+
+  background: rgba(30, 18, 10, 0.94);
+  border: 1px solid rgba(212, 165, 116, 0.28);
+  border-radius: 1rem;
+
+  text-align: center;
+  color: #f2ece4;
+
+  cursor: default;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+
+  animation: welcomeRise 0.6s ease-out;
+}
+
+.welcomeEyebrow {
+  display: block;
+
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+
+  color: #d4a574;
+  margin-bottom: 0.6rem;
+}
+
+.welcomeTitle {
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.15;
+
+  margin: 0 0 0.75rem;
+  color: #f6efe4;
+}
+
+.welcomeText {
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: rgba(242, 236, 228, 0.72);
+
+  margin: 0 0 1.25rem;
+}
+
+.welcomeHint {
+  display: block;
+
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  color: rgba(212, 165, 116, 0.72);
+}
+
+@keyframes welcomeFade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes welcomeRise {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

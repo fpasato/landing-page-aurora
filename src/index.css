@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* 1. Estilos globais padrão */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Urbanist', sans-serif;
+}
+
+
+:root {
+
+  --primary: #7f5539;
+  --primary-foreground: #ede0d4;
+  
+  --secondary: #a68a64;
+  --accent: #ede0d4;
+  --text: #656d4a;
+  --background: #414833;
+}

@@ -1,0 +1,41 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+
+    height: 80px;
+}
+
+header img {
+  object-fit: contain;
+    height: 100px;
+    width: auto;
+}
+
+.navbar {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+}
+
+.social {
+    display: flex;
+    gap: 1rem;
+}
+
+.navbarLink, .socialLink {
+    text-decoration: none;
+    color: var(--text);
+    transition: 0.3s ease all;
+    font-weight: 500;
+    display: inline-block;
+    line-height: 1;
+}
+
+.navbarLink:hover, .socialLink:hover {
+    color: var(--secondary);
+    transform: translateX(2px) translateY(-2px);
+}
+
+
